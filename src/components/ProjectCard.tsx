@@ -10,7 +10,7 @@ export function ProjectCard({
 }: {
   project: Project;
   index?: number;
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <Reveal delay={(index % 2) * 0.08} className={className}>

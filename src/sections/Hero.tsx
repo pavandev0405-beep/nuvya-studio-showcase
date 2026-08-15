@@ -24,8 +24,8 @@ export function Hero() {
       <AnimatePresence initial={false}>
         <motion.img
           key={index}
-          src={slides[index].src}
-          alt={slides[index].alt}
+          src={(slides[index] ?? slides[0])!.src}
+          alt={(slides[index] ?? slides[0])!.alt}
           width={1920}
           height={1200}
           initial={{ opacity: 0, scale: 1.08 }}
