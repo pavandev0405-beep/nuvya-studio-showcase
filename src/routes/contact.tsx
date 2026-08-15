@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader } from "@/components/PageHeader";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Contact } from "@/sections/Contact";
 
@@ -22,12 +21,9 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Contact"
-        title="Let's Create a Home That Feels Like You."
-        intro="Tell us a little about your space, and let's start a conversation."
-      />
-      <Contact />
+      <div className="pt-24 md:pt-32">
+        <Contact />
+      </div>
     </SiteLayout>
   );
 }
