@@ -25,14 +25,14 @@ const labelClass = "eyebrow block mb-2";
 
 function validate(values: Fields) {
   const errors: Fields = {};
-  if (!values.name?.trim()) errors.name = "Please tell us your name.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email ?? ""))
-    errors.email = "Enter a valid email address.";
-  if ((values.phone ?? "").replace(/\D/g, "").length < 8)
-    errors.phone = "Enter a reachable phone number.";
-  if (!values.city?.trim()) errors.city = "Which city is the home in?";
-  if ((values.message ?? "").trim().length < 10)
-    errors.message = "A sentence or two about the space helps us prepare.";
+  if (!values['name']?.trim()) errors['name'] = "Please tell us your name.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values['email'] ?? ""))
+    errors['email'] = "Enter a valid email address.";
+  if ((values['phone'] ?? "").replace(/\D/g, "").length < 8)
+    errors['phone'] = "Enter a reachable phone number.";
+  if (!values['city']?.trim()) errors['city'] = "Which city is the home in?";
+  if ((values['message'] ?? "").trim().length < 10)
+    errors['message'] = "A sentence or two about the space helps us prepare.";
   return errors;
 }
 
@@ -159,14 +159,14 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={4}
-          value={values.message ?? ""}
+          value={values['message'] ?? ""}
           onChange={set("message")}
           placeholder="Tell us about your space and how you'd like to live in it."
-          aria-invalid={Boolean(errors.message)}
+          aria-invalid={Boolean(errors['message'])}
           className={`${fieldClass} resize-none`}
         />
-        {errors.message ? (
-          <p className="mt-2 text-xs text-destructive">{errors.message}</p>
+        {errors['message'] ? (
+          <p className="mt-2 text-xs text-destructive">{errors['message']}</p>
         ) : null}
       </div>
 
